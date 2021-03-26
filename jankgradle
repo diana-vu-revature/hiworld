@@ -1,0 +1,18 @@
+#!/bin/bash
+
+case $1 in
+clean)
+    rm App.jar App.class
+    ;;
+
+build)
+    javac App.javac
+    ;;
+
+package)
+    jar -cfe App.jar App App.class
+    ;;
+
+run)
+    java App;;
+esac
