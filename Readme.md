@@ -1,2 +1,2 @@
-# Card Game App
-A jank example of a card game
+# Pizza Order App
+A jank example of a pizza ordering application.

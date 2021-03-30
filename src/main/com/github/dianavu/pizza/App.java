@@ -1,6 +1,6 @@
+
 public class App{
    public static void main(String[] args){
-
-         System.out.println(args[1]);
+      Pizza order = new Pizza();    //creating a new pizza order
    }
 }
