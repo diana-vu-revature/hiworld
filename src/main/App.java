@@ -8,10 +8,11 @@ public class App{
 
       //run ordering system
       order.getOrder();
+      order.reviewOrder();
    }
 
    public static void greetCustomer(){
-      System.out.println("***Welcome to the online pizza ordering system!***\n");
-      System.out.println("***Please make your selections below: ***\n");
+      System.out.println("*** Welcome to the online pizza ordering system! ***\n");
+      System.out.println("*** Please make your selections below: ***\n");
    }
 }
