@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Pizza {
-    int n = 0; 
+    int n; 
 
     //creating Arraylist to hold ALL pizza orders
     ArrayList<ArrayList> totalPizza = new ArrayList<ArrayList>();
