@@ -3,12 +3,37 @@
  */
 package hiworld;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.ResultSet;
+
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+            //for connecting to postgres
+            String url = "jdbc:postgresql://localhost:5432/postgres";
+            String username = "postgres";
+            String password = "password";
+      
+            try {
+               Connection connection = DriverManager.getConnection(url, username, password);
+               Statement statement = connection.createStatement();
+               int rowCount = statement.executeUpdate("insert into customers values (1, 'Diana', 'Vu')");
+               System.out.println(rowCount + " rows affected.");
+      
+               ResultSet resultSet = statement.executeQuery("select * from customers");
+      
+               while(resultSet.next()){
+                  System.out.println(resultSet.getInt("id"));
+                  System.out.println(resultSet.getString("fname"));
+                  System.out.println(resultSet.getString("lname"));
+               }
+               
+            } catch (SQLException e) {
+               // TODO Auto-generated catch block
+               e.printStackTrace();
+            }
     }
 }
