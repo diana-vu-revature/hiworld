@@ -7,15 +7,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 
-public class Pizza {
+public class Pizza extends Thread{
     int n;
     String size, cheese, pepperoni; 
 
     //creating Arraylist to hold ALL pizza orders
-    ArrayList<ArrayList> totalPizza = new ArrayList<ArrayList>();
+    //ArrayList<ArrayList> totalPizza = new ArrayList<ArrayList>();
 
     //get the order from the customer
-    public void getOrder(){
+    public void run(){
         //for connecting to postgres
         String url = "jdbc:postgresql://localhost:5432/postgres";
         String username = "hiworld";
@@ -42,12 +42,12 @@ public class Pizza {
 
             try {
                 Connection connection = DriverManager.getConnection(url, username, password);
-    
-                CustomerDi eDi = new CustomerDi(connection);
-    
+                      
                 Customer bob = new Customer(i, name, size, cheese, pepperoni);
+
+                CustomerDi eDi = new CustomerDi(connection, bob);
     
-                eDi.create(bob);
+                eDi.start();
                 
              } catch (SQLException e) {
             
@@ -78,7 +78,7 @@ public class Pizza {
 
         Scanner input = new Scanner(System.in);
         System.out.println("\nSize of pizza: S / M / L\n");
-        String size = input.nextLine();
+        size = input.nextLine();
       
 
         //add to arraylist to keep track of all features of pizza
@@ -86,18 +86,18 @@ public class Pizza {
 
         Scanner in = new Scanner(System.in);
         System.out.println("\nCheese: Y / N\n");
-        String cheese = in.nextLine();
+        cheese = in.nextLine();
     
         pizzaType.add(cheese);
 
         Scanner user = new Scanner(System.in);
         System.out.println("\nPepperoni: Y / N\n");
-        String pepperoni = user.nextLine();
+        pepperoni = user.nextLine();
      
         pizzaType.add(pepperoni);
 
         //add pizza to total pizza orders
-        totalPizza.add(pizzaType);
+        //totalPizza.add(pizzaType);
     }
         
 }

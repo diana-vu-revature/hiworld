@@ -6,10 +6,12 @@ import java.sql.SQLException;
 
 //import hiworld.Customer;
 
-public class CustomerDi {
+public class CustomerDi extends Thread{
     Connection connection;
 
-    public void create(Customer customer){
+    Customer customer;
+
+    public void run(){
         try{
             PreparedStatement pStatement = connection.prepareStatement("insert into customers(fname, size, cheese, pepperoni) values (?, ?, ?, ?)");
             pStatement.setString(1, customer.getName());
@@ -22,10 +24,9 @@ public class CustomerDi {
         }
     }
 
-    public CustomerDi(Connection connection) {
+    public CustomerDi(Connection connection, Customer customer) {
         this.connection = connection;
+        this.customer = customer;
     }
-
-    
-    
+ 
 }
