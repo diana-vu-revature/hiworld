@@ -12,34 +12,48 @@ import java.sql.ResultSet;
 public class App {
 
     public static void main(String[] args) {
-            //for connecting to postgres
-            String url = "jdbc:postgresql://localhost:5432/postgres";
-            String username = "hiworld";
-            String password = "password"; 
-      
-            try {
-               Connection connection = DriverManager.getConnection(url, username, password);
+            // //for connecting to postgres
+            // String url = "jdbc:postgresql://localhost:5432/postgres";
+            // String username = "hiworld";
+            // String password = "password"; 
 
-               CustomerDi eDi = new CustomerDi(connection);
+            Pizza order = new Pizza();    //creating a new pizza order
 
-               Customer bob = new Customer(0, "Bob", "s", "y", "y");
+            greetCustomer();
+      
+            //run ordering system
+            order.getOrder();
+            //order.reviewOrder();
+      
+            // try {
+            //    Connection connection = DriverManager.getConnection(url, username, password);
 
-               eDi.create(bob);
-               // Statement statement = connection.createStatement();
-               // int rowCount = statement.executeUpdate("insert into customers values (1, 'Diana', 'Vu')");
-               // System.out.println(rowCount + " rows affected.");
+            //    CustomerDi eDi = new CustomerDi(connection);
+
+            //    Customer bob = new Customer(0, "Bob", "s", "y", "y");
+
+            //    eDi.create(bob);
+            //    // Statement statement = connection.createStatement();
+            //    // int rowCount = statement.executeUpdate("insert into customers values (1, 'Diana', 'Vu')");
+            //    // System.out.println(rowCount + " rows affected.");
       
-               // ResultSet resultSet = statement.executeQuery("select * from customers");
+            //    // ResultSet resultSet = statement.executeQuery("select * from customers");
       
-               // while(resultSet.next()){
-               //    System.out.println(resultSet.getInt("id"));
-               //    System.out.println(resultSet.getString("fname"));
-               //    System.out.println(resultSet.getString("lname"));
-               // }
+            //    // while(resultSet.next()){
+            //    //    System.out.println(resultSet.getInt("id"));
+            //    //    System.out.println(resultSet.getString("fname"));
+            //    //    System.out.println(resultSet.getString("lname"));
+            //    // }
                
-            } catch (SQLException e) {
-               // TODO Auto-generated catch block
-               e.printStackTrace();
-            }
+            // } catch (SQLException e) {
+            //    // TODO Auto-generated catch block
+            //    e.printStackTrace();
+            // }
+            
     }
+
+    public static void greetCustomer(){
+      System.out.println("*** Welcome to the online pizza ordering system! ***\n");
+      System.out.println("*** Please make your selections below: ***\n");
+   }
 }
