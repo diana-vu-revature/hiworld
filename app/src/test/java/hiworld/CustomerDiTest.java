@@ -12,14 +12,15 @@ public class CustomerDiTest {
 
     @Mock Connection connection;
 
-    Customer mockCustomer;
+    static Customer mockCustomer;
 
     @BeforeAll public static void init(){
-        this.mockCustomer = new Customer(0, "bob", "s", "y", "n");
+        mockCustomer = new Customer(0, "bob", "s", "y", "n");
     }
     
     @Test void canInsertData() {
         CustomerDi classUnderTest = new CustomerDi(connection, mockCustomer);
+        classUnderTest.run();
         assertTrue(true);
     }
 }
