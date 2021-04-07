@@ -11,7 +11,7 @@ public class CustomerDi {
 
     public void create(Customer customer){
         try{
-            PreparedStatement pStatement = connection.prepareStatement("insert into customers(name, size, cheese, pepperoni) values (?, ?, ?, ?)");
+            PreparedStatement pStatement = connection.prepareStatement("insert into customers(fname, size, cheese, pepperoni) values (?, ?, ?, ?)");
             pStatement.setString(1, customer.getName());
             pStatement.setString(2, customer.getSize());
             pStatement.setString(3, customer.getCheese());

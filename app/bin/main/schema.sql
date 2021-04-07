@@ -4,5 +4,4 @@ create table customers(
     size text not null,
     cheese text not null,
     pepperoni text not null,
-
 );
